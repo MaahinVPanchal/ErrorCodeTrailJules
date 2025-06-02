@@ -1,0 +1,339 @@
+{
+  "name": "category",
+  "base": "configentity",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "SoftDelete": true,
+    "Timestamp": true
+  },
+  "hidden": [],
+  "properties": {
+    "id": {
+      "type": "string",
+      "id": true,
+      "defaultFn": "uuidv4",
+      "idInjection": false
+    },
+    "name": {
+      "type": "string"
+    },
+    "categorystatus": {
+      "type": "number",
+      "required": true
+    },
+    "totalproducts": {
+      "type": "number",
+      "default": 0
+    },
+    "totalsubcategories": {
+      "type": "number",
+      "default": 0
+    },
+    "createdby": {
+      "type": "string"
+    },
+    "modifiedby": {
+      "type": "string"
+    },
+    "parentId": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "groupcategories": {
+      "type": "hasMany",
+      "model": "groupcategory",
+      "foreignKey": ""
+    },
+    "categorymedia": {
+      "type": "hasMany",
+      "model": "categorymedia",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "categorydetail": {
+      "type": "hasMany",
+      "model": "categorydetail",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [{
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "categoryprogress"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "getcategory"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "exportCategory"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "exportSubcategory"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "importCategory"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "importSubcategory"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "topCategories"
+    }
+  ],
+  "methods": {
+    "categoryprogress": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/categoryprogress",
+        "verb": "get"
+      }
+    },
+    "getcategory": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/getcategory",
+        "verb": "post"
+      }
+    },
+    "exportCategory": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/exportCategory",
+        "verb": "get"
+      }
+    },
+    "exportSubcategory": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/exportSubcategory",
+        "verb": "get"
+      }
+    },
+    "importCategory": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/importCategory",
+        "verb": "post"
+      }
+    },
+    "importSubcategory": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/importSubcategory",
+        "verb": "post"
+      }
+    },
+    "topCategories": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/topCategories",
+        "verb": "get"
+      }
+    },
+    "createmedia": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/createmedia",
+        "verb": "get"
+      }
+    },
+    "titleCaseCategory": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/titleCaseCategory",
+        "verb": "get"
+      }
+    },
+    "getCategoryListWithSubcatogories": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/getCategoryListWithSubcatogories",
+        "verb": "get"
+      }
+    }
+  }
+}

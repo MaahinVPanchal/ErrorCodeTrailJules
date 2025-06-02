@@ -1,0 +1,1684 @@
+{
+  "name": "managescript",
+  "base": "Model",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "changeTemplateNotificationType"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "postNotificationType"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "patchMasterdetailDescriptionJSON"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "setDynamicOrderstatus"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "setTotalUsersOfGroup"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "SetTotalSubcategoryCount"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "setTotalproductsOfCategory"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "deleteTestUsers"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "updateDefaultImage"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "clonePabraiToSufalam"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "updateEmailTemplates"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "updateInquiryNotificationTemplates"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "insertNewRole"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "updateOrderAndInquiryEmailTemplates"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "insertCustomDomainTemplate"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "getUsermetaauthDetails"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "insertInvoiceTemplate"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "changeStatusOfCustomDomainMapping"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "updateInvoiceTemplate"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "insertAdminOrderNotificationTemplate"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "updateLanguageJSON"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "updateTemplateID"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "addMultiLanguageJSON"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "migrateCGRecords"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "patchCODOptionInPaymentJSON"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "updateMasterdetailJSON"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "uploadDefaultImagesToS3"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "updateExistGuestUserRoleId"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "updateCountryCodeInOrderViaWhatsApp"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "sendEmail"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "updateExistingOrderPaymentStatus"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "updateNotificationsIntoSadadStore"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "updateUserStatus"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "updateAddressConfigJSON"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "updateFixedProductDetailsLabel"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "manageInquiryActions"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "manageNotificationsInArabic"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "manageNotificationsTextMessageIntoArabicTextMessage"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "manageSadadStorePaymentGateway"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "manageCategoryDetails"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "updateCustomDomainMappingNotificationType"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "manageVersionOfInstance"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "deleteProductWhichSubcategoryOrCategoryNotExist"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "deleteProductWhichSubcategoryOrCategoryNotExist"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "deleteSalesModuleData"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "deleteDataOfInstance"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "deleteInstance"
+    }
+  ],
+  "methods": {
+    "changeTemplateNotificationType": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/changeTemplateNotificationType",
+        "verb": "get"
+      }
+    },
+    "postNotificationType": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/postNotificationType",
+        "verb": "post"
+      }
+    },
+    "postInvoiceStatus": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/postInvoiceStatus",
+        "verb": "get"
+      }
+    },
+    "patchMasterdetailDescriptionJSON": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/patchMasterdetailDescriptionJSON",
+        "verb": "patch"
+      }
+    },
+    "setDynamicOrderstatus": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/setDynamicOrderstatus",
+        "verb": "get"
+      }
+    },
+    "setTotalUsersOfGroup": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/setTotalUsersOfGroup",
+        "verb": "get"
+      }
+    },
+    "SetTotalSubcategoryCount": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/SetTotalSubcategoryCount",
+        "verb": "get"
+      }
+    },
+    "setTotalproductsOfCategory": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/setTotalproductsOfCategory",
+        "verb": "get"
+      }
+    },
+    "deleteTestUsers": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/deleteTestUsers",
+        "verb": "get"
+      }
+    },
+    "updateDefaultImage": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/updateDefaultImage",
+        "verb": "get"
+      }
+    },
+    "sendEmail": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/sendEmail",
+        "verb": "get"
+      }
+    },
+    "managePlanCreationAndExpireDate": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/managePlanCreationAndExpireDate",
+        "verb": "get"
+      }
+    },
+    "clonePabraiToSufalam": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/clonePabraiToSufalam",
+        "verb": "get"
+      }
+    },
+    "experimentAPI": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/experimentAPI",
+        "verb": "get"
+      }
+    },
+    "addLocations": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/addLocations",
+        "verb": "get"
+      }
+    },
+    "updateTenantConfig": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/updateTenantConfig",
+        "verb": "get"
+      }
+    },
+    "updatePlanDetails": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/updatePlanDetails",
+        "verb": "get"
+      }
+    },
+    "updateStateId": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/updateStateId",
+        "verb": "get"
+      }
+    },
+    "updateEmailTemplates": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/updateEmailTemplates",
+        "verb": "get"
+      }
+    },
+    "updateInquiryNotificationTemplates": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/updateInquiryNotificationTemplates",
+        "verb": "get"
+      }
+    },
+    "updateOrderAndInquiryEmailTemplates": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/updateOrderAndInquiryEmailTemplates",
+        "verb": "get"
+      }
+    },
+    "insertCustomDomainTemplate": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/insertCustomDomainTemplate",
+        "verb": "get"
+      }
+    },
+    "getUsermetaauthDetails": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/getUsermetaauthDetails",
+        "verb": "get"
+      }
+    },
+    "insertInvoiceTemplate": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/insertInvoiceTemplate",
+        "verb": "get"
+      }
+    },
+    "changeStatusOfCustomDomainMapping": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/changeStatusOfCustomDomainMapping",
+        "verb": "get"
+      }
+    },
+    "updateInvoiceTemplate": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/updateInvoiceTemplate",
+        "verb": "get"
+      }
+    },
+    "insertAdminOrderNotificationTemplate": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/insertAdminOrderNotificationTemplate",
+        "verb": "get"
+      }
+    },
+    "updateLanguageJSON": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/updateLanguageJSON",
+        "verb": "patch"
+      }
+    },
+    "manageLanguageJSON": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/manageLanguageJSON",
+        "verb": "patch"
+      }
+    },
+    "updateTemplateID": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/updateTemplateID",
+        "verb": "get"
+      }
+    },
+    "addMultiLanguageJSON": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/addMultiLanguageJSON",
+        "verb": "patch"
+      }
+    },
+    "migrateCGRecords": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/migrateCGRecords",
+        "verb": "get"
+      }
+    },
+    "patchCODOptionInPaymentJSON": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/patchCODOptionInPaymentJSON",
+        "verb": "get"
+      }
+    },
+    "updateMasterdetailJSON": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/updateMasterdetailJSON",
+        "verb": "get"
+      }
+    },
+    "uploadDefaultImagesToS3": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/uploadDefaultImagesToS3",
+        "verb": "get"
+      }
+    },
+    "updateExistGuestUserRoleId": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/updateExistGuestUserRoleId",
+        "verb": "get"
+      }
+    },
+    "updateCountryCodeInOrderViaWhatsApp": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/updateCountryCodeInOrderViaWhatsApp",
+        "verb": "get"
+      }
+    },
+    "updateExistingOrderPaymentStatus": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/updateExistingOrderPaymentStatus",
+        "verb": "get"
+      }
+    },
+    "updateNotificationsIntoSadadStore": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/updateNotificationsIntoSadadStore",
+        "verb": "get"
+      }
+    },
+    "updateUserStatus": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/updateUserStatus",
+        "verb": "get"
+      }
+    },
+    "updateAddressConfigJSON": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/updateAddressConfigJSON",
+        "verb": "get"
+      }
+    },
+    "updateFixedProductDetailsLabel": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/updateFixedProductDetailsLabel",
+        "verb": "get"
+      }
+    },
+    "manageInquiryActions": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/manageInquiryActions",
+        "verb": "get"
+      }
+    },
+    "manageNotificationsInArabic": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/manageNotificationsInArabic",
+        "verb": "get"
+      }
+    },
+    "manageNotificationsTextMessageIntoArabicTextMessage": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/manageNotificationsTextMessageIntoArabicTextMessage",
+        "verb": "get"
+      }
+    },
+    "manageSadadStorePaymentGateway": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/manageSadadStorePaymentGateway",
+        "verb": "get"
+      }
+    },
+    "manageCategoryDetails": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/manageCategoryDetails",
+        "verb": "get"
+      }
+    },
+    "updateCustomDomainMappingNotificationType": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/updateCustomDomainMappingNotificationType",
+        "verb": "get"
+      }
+    },
+    "manageVersionOfInstance": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/manageVersionOfInstance",
+        "verb": "get"
+      }
+    },
+    "updateRoleIdOfSuperAdmin": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/updateRoleIdOfSuperAdmin",
+        "verb": "get"
+      }
+    },
+    "deleteProductWhichSubcategoryOrCategoryNotExist": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/deleteProductWhichSubcategoryOrCategoryNotExist",
+        "verb": "get"
+      }
+    },
+    "insertNewRole": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/insertNewRole",
+        "verb": "get"
+      }
+    },
+    "getSuperAdmin": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/getSuperAdmin",
+        "verb": "get"
+      }
+    },
+    "deleteMasterId": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/deleteMasterId",
+        "verb": "get"
+      }
+    },
+    "setNotificationTypes": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/setNotificationTypes",
+        "verb": "get"
+      }
+    },
+    "updateOrderEmailNotifications": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/updateOrderEmailNotifications",
+        "verb": "get"
+      }
+    },
+    "updateAppName": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/updateAppName",
+        "verb": "patch"
+      }
+    },
+    "deleteSalesModuleData": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/deleteSalesModuleData",
+        "verb": "get"
+      }
+    },
+    "updateProductVariation": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/updateProductVariation",
+        "verb": "get"
+      }
+    },
+    "updateCredentialsSMSTemplate": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/updateCredentialsSMSTemplate",
+        "verb": "get"
+      }
+    },
+    "updateNumberOfTimeSignIn": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/updateNumberOfTimeSignIn",
+        "verb": "get"
+      }
+    },
+    "deleteDataOfInstance": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/deleteDataOfInstance",
+        "verb": "post"
+      }
+    },
+    "manageNewOrderPendingSMSTemplate": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/manageNewOrderPendingSMSTemplate",
+        "verb": "get"
+      }
+    },
+    "manageLastmodifiedDateOfPrice": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/manageLastmodifiedDateOfPrice",
+        "verb": "get"
+      }
+    },
+    "manageCartCounterOfParticularInstanceUserWise": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/manageCartCounterOfParticularInstanceUserWise",
+        "verb": "get"
+      }
+    },
+    "importDaxalCosmeticContacts": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/importDaxalCosmeticContacts",
+        "verb": "post"
+      }
+    },
+    "deleteInstance": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/deleteInstance",
+        "verb": "get"
+      }
+    }
+  }
+}

@@ -1,0 +1,161 @@
+{
+  "name": "inquiry",
+  "base": "configentity",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "SoftDelete": true,
+    "Timestamp": true
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "id": true,
+      "defaultFn": "uuidv4"
+    },
+    "date": {
+      "type": "string"
+    },
+    "status": {
+      "type": "number"
+    },
+    "assignedto": {
+      "type": "string"
+    },
+    "industryId": {
+      "type": "string"
+    },
+    "nextactionId": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "inquiryno": {
+      "type": "string"
+    },
+    "createdby": {
+      "type": "string"
+    },
+    "modifiedby": {
+      "type": "string"
+    },
+    "inquiryDetails": {
+      "type": "string",
+      "dataType": "longtext"
+    },
+    "cityId": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "source": {
+      "type": "belongsTo",
+      "model": "source",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "Admin",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "create"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "doInquiry"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "adminInquiryListing"
+    }
+  ],
+  "methods": {
+    "doInquiry": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/doInquiry",
+        "verb": "post"
+      }
+    },
+    "adminInquiryListing": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/adminInquiryListing",
+        "verb": "get"
+      }
+    }
+  }
+}

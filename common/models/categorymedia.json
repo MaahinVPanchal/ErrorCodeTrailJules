@@ -1,0 +1,48 @@
+{
+  "name": "categorymedia",
+  "base": "configentity",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "SoftDelete": true,
+    "Timestamp": true
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "id": true,
+      "defaultFn": "uuidv4"
+    },
+    "categoryname": {
+      "type": "string"
+    },
+    "createdby": {
+      "type": "string"
+    },
+    "modifiedby": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "category": {
+      "type": "belongsTo",
+      "model": "category",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}

@@ -1,0 +1,227 @@
+{
+  "name": "collection",
+  "base": "configentity",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "SoftDelete": true,
+    "Timestamp": true
+  },
+  "hidden": [],
+  "properties": {
+    "id": {
+      "type": "string",
+      "id": true,
+      "defaultFn": "uuidv4"
+    },
+    "collection_name": {
+      "type": "string"
+    },
+    "collection_type": {
+      "type": "number",
+      "default": 2
+    },
+    "collection_description": {
+      "type": "string"
+    },
+    "collection_image": {
+      "type": "string"
+    },
+    "collection_condition_type": {
+      "type": "number",
+      "default": 1
+    },
+    "collection_noofproducts": {
+      "type": "number",
+      "default": 0
+    },
+    "collection_condition_config": {
+      "type": "string",
+      "dataType": "longtext"
+    },
+    "visibility": {
+      "type": "number",
+      "default": 1
+    },
+    "collection_status": {
+      "type": "number",
+      "default": 1
+    },
+    "createdby": {
+      "type": "string"
+    },
+    "modifiedby": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "hasOne",
+      "model": "user",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "collectiondetails": {
+      "type": "hasMany",
+      "model": "collectiondetail",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      },
+      "scope": {
+        "include": "product",
+        "scope": {
+          "include": "productmedia"
+        }
+      }
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "getCollectionProgress"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "getManualCollectionProductListing"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "getCollectionProducts"
+    }
+  ],
+  "methods": {
+    "getCollectionCriteria": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/getCollectionCriteria",
+        "verb": "get"
+      }
+    },
+    "getCollectionCondition": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/getCollectionCondition",
+        "verb": "get"
+      }
+    },
+    "getCollectionProgress": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/getCollectionProgress",
+        "verb": "get"
+      }
+    },
+    "getManualCollectionProductListing": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/getManualCollectionProductListing",
+        "verb": "get"
+      }
+    },
+    "getCollectionProducts": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/getCollectionProducts",
+        "verb": "get"
+      }
+    }
+  }
+}

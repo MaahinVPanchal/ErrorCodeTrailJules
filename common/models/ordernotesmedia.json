@@ -1,0 +1,35 @@
+{
+  "name": "ordernotesmedia",
+  "base": "configentity",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "SoftDelete": true,
+    "Timestamp": true
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "id": true,
+      "defaultFn": "uuidv4"
+    },
+    "file": {
+      "type": "string"
+    },
+    "filetype": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "ordernotes": {
+      "type": "belongsTo",
+      "model": "ordernotes",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

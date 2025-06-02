@@ -1,0 +1,68 @@
+{
+  "name": "orderdetails",
+  "base": "configentity",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "SoftDelete": true,
+    "Timestamp": true
+  },
+  "hidden": [],
+  "properties": {
+    "id": {
+      "type": "string",
+      "id": true,
+      "defaultFn": "uuidv4"
+    },
+    "quantity": {
+      "type": "number"
+    },
+    "amount": {
+      "type": "number",
+      "length": 20,
+      "dataType": "float",
+      "precision": 20,
+      "scale": 2
+    },
+    "createdby": {
+      "type": "string"
+    },
+    "modifiedby": {
+      "type": "string"
+    },
+    "variation": {
+      "type": "string",
+      "dataType": "longtext"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "order": {
+      "type": "belongsTo",
+      "model": "order",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "product": {
+      "type": "belongsTo",
+      "model": "product",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}

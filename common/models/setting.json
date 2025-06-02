@@ -1,0 +1,811 @@
+{
+  "name": "setting",
+  "base": "configentity",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "SoftDelete": true,
+    "Timestamp": true
+  },
+  "properties": {
+    "registerallow": {
+      "type": "string"
+    },
+    "status": {
+      "type": "number",
+      "default": 1
+    },
+    "createdby": {
+      "type": "string"
+    },
+    "modifiedby": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string",
+      "dataType": "longtext"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "checkversion"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "changeStatus"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "getLoginOptions"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "getColorCode"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "getLogo"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "validateAdmin"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "postBanner"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "deleteBanner"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "getOfferBanner"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "razorpayment"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "getSignupOptions"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "postSetting"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "deleteSetting"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "addSettingKey"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "addSettingKeyGeneral"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "listAllDetails"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "createRazorpayPlan"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "doRazorpayOrder"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "getDashboardPackageDetails"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "getCredentials"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "getPincodeListing"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "importPincode"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "exportPincode"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "getThemeColor"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "getPackageDetails"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "getBrochureDetails"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "getSampleDetails"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "patchFlatPriceShipping"
+    }
+  ],
+  "methods": {
+    "checkversion": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "Object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/checkversion",
+        "verb": "post"
+      }
+    },
+    "changeStatus": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/changeStatus",
+        "verb": "patch"
+      }
+    },
+    "getLoginOptions": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/getLoginOptions",
+        "verb": "get"
+      }
+    },
+    "getColorCode": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/getColorCode",
+        "verb": "get"
+      }
+    },
+    "validateAdmin": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/validateAdmin",
+        "verb": "get"
+      }
+    },
+    "postBanner": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/postBanner",
+        "verb": "post"
+      }
+    },
+    "deleteBanner": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/deleteBanner",
+        "verb": "patch"
+      }
+    },
+    "getOfferBanner": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/getOfferBanner",
+        "verb": "get"
+      }
+    },
+    "razorpayment": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/razorpayment",
+        "verb": "post"
+      }
+    },
+    "getLogo": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/getLogo",
+        "verb": "get"
+      }
+    },
+    "getSignupOptions": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/getSignupOptions",
+        "verb": "get"
+      }
+    },
+    "postSetting": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/postSetting",
+        "verb": "post"
+      }
+    },
+    "deleteSetting": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/deleteSetting",
+        "verb": "patch"
+      }
+    },
+    "addSettingKey": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/addSettingKey",
+        "verb": "post"
+      }
+    },
+    "listAllDetails": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/listAllDetails",
+        "verb": "get"
+      }
+    },
+    "getCredentials": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/getCredentials",
+        "verb": "get"
+      }
+    },
+    "addSettingKeyGeneral": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/addSettingKeyGeneral",
+        "verb": "post"
+      }
+    },
+    "createRazorpayPlan": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/createRazorpayPlan",
+        "verb": "post"
+      }
+    },
+    "doRazorpayOrder": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/doRazorpayOrder",
+        "verb": "post"
+      }
+    },
+    "getDashboardPackageDetails": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/getDashboardPackageDetails",
+        "verb": "get"
+      }
+    },
+    "getPincodeListing": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/getPincodeListing",
+        "verb": "get"
+      }
+    },
+    "importPincode": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/importPincode",
+        "verb": "post"
+      }
+    },
+    "exportPincode": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/exportPincode",
+        "verb": "get"
+      }
+    },
+    "getThemeColor": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/getThemeColor",
+        "verb": "get"
+      }
+    },
+    "getPackageDetails": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/getPackageDetails",
+        "verb": "get"
+      }
+    },
+    "getBrochureDetails": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/getBrochureDetails",
+        "verb": "get"
+      }
+    },
+    "getSampleDetails": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/getSampleDetails",
+        "verb": "get"
+      }
+    },
+    "patchFlatPriceShipping": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/patchFlatPriceShipping",
+        "verb": "patch"
+      }
+    }
+  }
+}

@@ -1,0 +1,649 @@
+{
+  "name": "masterdetail",
+  "base": "PersistedModel",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "SoftDelete": true,
+    "Timestamp": true
+  },
+  "hidden": [],
+  "properties": {
+    "id": {
+      "type": "string",
+      "id": true,
+      "defaultFn": "uuidv4"
+    },
+    "name": {
+      "type": "string"
+    },
+    "codename": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string",
+      "dataType": "longtext"
+    },
+    "status": {
+      "type": "boolean",
+      "default": true
+    },
+    "fullname": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "changeAdminIdSF"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "changeAdminIdSJ"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "changeAdminIdKJ"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "changeAdminIdPANAM"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "changeAdminIdNUTLAND"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "changeAdminIdNextview"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "changeAdminIdJewel"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "changeAdminIdFMCG"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "changeAdminIdElectronic"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "addNewTenant"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "addNewMarchant"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "verifyMarchant"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "razorPayOrder"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "doVerifyPaymentDetails"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "doVerifyOneTimePayment"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "deleteInstanceTableData"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "verifyOtp"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "resendOtp"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "sendPlanExpireEmail"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "getMasterDetailsFromURL"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "razorPayOneTimePayment"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "patchMaterdetailsMetaConfiguration"
+    }
+  ],
+  "methods": {
+    "changeAdminIdSF": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/changeAdminIdSF",
+        "verb": "get"
+      }
+    },
+    "changeAdminIdSJ": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/changeAdminIdSJ",
+        "verb": "get"
+      }
+    },
+    "changeAdminIdKJ": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/changeAdminIdKJ",
+        "verb": "get"
+      }
+    },
+    "changeAdminIdPANAM": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/changeAdminIdPANAM",
+        "verb": "get"
+      }
+    },
+    "changeAdminIdNUTLAND": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/changeAdminIdNUTLAND",
+        "verb": "get"
+      }
+    },
+    "changeAdminIdNextview": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/changeAdminIdNextview",
+        "verb": "get"
+      }
+    },
+    "changeAdminIdJewel": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/changeAdminIdJewel",
+        "verb": "get"
+      }
+    },
+    "changeAdminIdFMCG": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/changeAdminIdFMCG",
+        "verb": "get"
+      }
+    },
+    "changeAdminIdElectronic": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/changeAdminIdElectronic",
+        "verb": "get"
+      }
+    },
+    "addNewTenant": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/addNewTenant",
+        "verb": "post"
+      }
+    },
+    "addNewMarchant": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/addNewMarchant",
+        "verb": "post"
+      }
+    },
+    "verifyMarchant": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/verifyMarchant",
+        "verb": "post"
+      }
+    },
+    "razorPayOrder": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/razorPayOrder",
+        "verb": "post"
+      }
+    },
+    "doVerifyPaymentDetails": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/doVerifyPaymentDetails",
+        "verb": "get"
+      }
+    },
+    "doVerifyOneTimePayment": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/doVerifyOneTimePayment",
+        "verb": "get"
+      }
+    },
+    "deleteInstanceTableData": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/deleteInstanceTableData",
+        "verb": "get"
+      }
+    },
+    "verifyOtp": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/verifyOtp",
+        "verb": "post"
+      }
+    },
+    "resendOtp": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/resendOtp",
+        "verb": "get"
+      }
+    },
+    "sendPlanExpireEmail": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/sendPlanExpireEmail",
+        "verb": "get"
+      }
+    },
+    "getMasterDetailsFromURL": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/getMasterDetailsFromURL",
+        "verb": "get"
+      }
+    },
+    "razorPayOneTimePayment": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/razorPayOneTimePayment",
+        "verb": "post"
+      }
+    },
+    "patchMaterdetailsMetaConfiguration": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/patchMaterdetailsMetaConfiguration",
+        "verb": "patch"
+      }
+    }
+  }
+}

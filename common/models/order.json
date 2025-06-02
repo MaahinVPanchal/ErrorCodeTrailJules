@@ -1,0 +1,717 @@
+{
+  "name": "order",
+  "base": "configentity",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "SoftDelete": true,
+    "Timestamp": true
+  },
+  "hidden": [],
+  "properties": {
+    "id": {
+      "type": "string",
+      "id": true,
+      "defaultFn": "uuidv4"
+    },
+    "orderno": {
+      "type": "string"
+    },
+    "expecteddelivery": {
+      "type": "number"
+    },
+    "orderstatus": {
+      "type": "number"
+    },
+    "totalamount": {
+      "type": "number",
+      "length": 20,
+      "dataType": "float",
+      "precision": 20,
+      "scale": 2
+    },
+    "inshoppingcart": {
+      "type": "number"
+    },
+    "deliverydate": {
+      "type": "date"
+    },
+    "createdby": {
+      "type": "string"
+    },
+    "modifiedby": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string"
+    },
+    "customername": {
+      "type": "string"
+    },
+    "totalitems": {
+      "type": "number"
+    },
+    "description": {
+      "type": "string"
+    },
+    "paymentDetail": {
+      "type": "string",
+      "dataType": "longtext"
+    },
+    "address": {
+      "type": "string",
+      "dataType": "longtext"
+    },
+    "baseprice": {
+      "type": "number",
+      "length": 20,
+      "dataType": "float",
+      "precision": 20,
+      "scale": 2
+    },
+    "tax": {
+      "type": "string",
+      "dataType": "longtext"
+    },
+    "additionalcharge": {
+      "type": "number",
+      "length": 20,
+      "dataType": "float",
+      "precision": 20,
+      "scale": 2
+    },
+    "additionalchargedetails": {
+      "type": "string",
+      "dataType": "longtext"
+    },
+    "shippingprice": {
+      "type": "number",
+      "length": 20,
+      "dataType": "float",
+      "precision": 20,
+      "scale": 2,
+      "default": 0
+    },
+    "discount": {
+      "type": "string",
+      "dataType": "longtext"
+    },
+    "paymentstatus": {
+      "type": "number",
+      "default": 1
+    },
+    "ordermedia": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "users": {
+      "type": "hasOne",
+      "model": "user",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "orderdetails": {
+      "type": "hasMany",
+      "model": "orderdetails",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "productmedia": {
+      "type": "hasMany",
+      "model": "productmedia",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "category": {
+      "type": "belongsTo",
+      "model": "category",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "city": {
+      "type": "belongsTo",
+      "model": "city",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "ordernotes": {
+      "type": "hasMany",
+      "model": "ordernotes",
+      "foreignKey": ""
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "findById"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "create"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "count"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "monthwiseorder"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "orderprogress"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "addtocart"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "requestProduct"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "productInquiry"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "placeOrder"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "cancelOrder"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "repeatOrder"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "salesmanOrderListingWithFilter"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "changeOrderStatus"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "orderprogress"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "genratepaytmchecksum"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "genratepayumoneyhash"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "getrecentorders"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "validatePincode"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "generateInvoice"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "exportOrders"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "uploadOrderInvoice"
+    }
+  ],
+  "methods": {
+    "monthwiseorder": {
+      "accepts": {
+        "arg": "req",
+        "type": "object",
+        "http": {
+          "source": "context"
+        }
+      },
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/monthwiseorder",
+        "verb": "get"
+      }
+    },
+    "orderprogress": {
+      "accepts": {
+        "arg": "req",
+        "type": "object",
+        "http": {
+          "source": "context"
+        }
+      },
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/orderprogress",
+        "verb": "get"
+      }
+    },
+    "addtocart": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/addtocart",
+        "verb": "post"
+      }
+    },
+    "requestProduct": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/requestProduct",
+        "verb": "post"
+      }
+    },
+    "productInquiry": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/productInquiry",
+        "verb": "post"
+      }
+    },
+    "placeOrder": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/placeOrder",
+        "verb": "patch"
+      }
+    },
+    "cancelOrder": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/cancelOrder",
+        "verb": "patch"
+      }
+    },
+    "repeatOrder": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/repeatOrder",
+        "verb": "post"
+      }
+    },
+    "salesmanOrderListingWithFilter": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/salesmanOrderListingWithFilter",
+        "verb": "get"
+      }
+    },
+    "changeOrderStatus": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/changeOrderStatus",
+        "verb": "patch"
+      }
+    },
+    "exportOrders": {
+      "accepts": {
+        "arg": "req",
+        "type": "object",
+        "http": {
+          "source": "context"
+        }
+      },
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/exportOrders",
+        "verb": "get"
+      }
+    },
+    "UserWiseOrderListing": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/UserWiseOrderListing",
+        "verb": "get"
+      }
+    },
+    "genratepaytmchecksum": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true,
+        "http": {
+          "source": "req"
+        }
+      },
+      "http": {
+        "path": "/genratepaytmchecksum",
+        "verb": "post"
+      }
+    },
+    "genratepayumoneyhash": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true,
+        "http": {
+          "source": "req"
+        }
+      },
+      "http": {
+        "path": "/genratepayumoneyhash",
+        "verb": "post"
+      }
+    },
+    "getrecentorders": {
+      "accepts": {
+        "arg": "req",
+        "type": "object",
+        "http": {
+          "source": "req"
+        }
+      },
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/getrecentorders",
+        "verb": "get"
+      }
+    },
+    "validatePincode": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/validatePincode",
+        "verb": "get"
+      }
+    },
+    "generateInvoice": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        },
+        {
+          "arg": "res",
+          "type": "object",
+          "http": {
+            "source": "res"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/generateInvoice",
+        "verb": "get"
+      }
+    },
+    "uploadOrderInvoice": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/uploadOrderInvoice",
+        "verb": "post"
+      }
+    }
+  }
+}

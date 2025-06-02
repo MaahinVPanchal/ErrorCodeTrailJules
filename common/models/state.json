@@ -1,0 +1,30 @@
+{
+  "name": "state",
+  "base": "configentity",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "SoftDelete": true,
+    "Timestamp": true
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "parentId": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "cities": {
+      "type": "hasMany",
+      "model": "city",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Products</title>
+
+  <!-- Bootstrap -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style type="text/css" media="print"></style>
+
+  <style>
+    .qr-main {
+      margin: 0px;
+      width: 100%;
+      max-width: 90px;
+      margin-right: 10px;
+      float: left;
+    }
+
+    .qr-main img {
+      height: 90px;
+      width: 90px;
+    }
+
+    .qr-main p {
+      margin: 0px;
+      text-align: center;
+    }
+
+    @media print {
+      .pagebreak {
+        page-break-after: always;
+      }
+
+      .qr-main {
+        height: 120px;
+      }
+
+      /* page-break-after works, as well */
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="col-md-12" style="padding: 10px 5px">
+      <div class="col-md-12 col-sm-12" id="printableArea">
+        <% for(var i=0; i < productData.length; i++) { %>
+          <div class="qr-main" style="width:100px; float: left; margin-top: 0px;margin-left: 25px">
+            <img src="https://chart.googleapis.com/chart?chs=125x125&cht=qr&chl=<%= productData[i].qrcodeData %>" />
+            <p class="pagebreak" style="text-align: center; margin-top: 0px;">
+              <%= productData[i].productno %>
+            </p>
+          </div>
+          <% } %>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

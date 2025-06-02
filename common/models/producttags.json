@@ -1,0 +1,37 @@
+{
+  "name": "producttags",
+  "base": "configentity",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "SoftDelete": true,
+    "Timestamp": true
+  },
+  "hidden": [],
+  "properties": {
+    "label": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string"
+    },
+    "logo": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "product": {
+      "type": "belongsTo",
+      "model": "product",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

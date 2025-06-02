@@ -1,0 +1,65 @@
+{
+  "name": "subcategory",
+  "base": "configentity",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "id": true,
+      "defaultFn": "uuidv4",
+      "idInjection": false
+    },
+    "name": {
+      "type": "string"
+    },
+    "subcategorystatus": {
+      "type": "number",
+      "required": true
+    },
+    "totalproducts": {
+      "type": "number",
+      "default": 0
+    },
+    "createdby": {
+      "type": "string"
+    },
+    "modifiedby": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "category": {
+      "type": "belongsTo",
+      "model": "category",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "Admin",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

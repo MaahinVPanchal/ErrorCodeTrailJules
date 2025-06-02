@@ -1,0 +1,67 @@
+{
+  "mysql": {
+    "host": "172.104.183.238",
+    "port": 3306,
+    "url": "",
+    "database": "bizon_live",
+    "password": "E>+@J2&_6eUdxt",
+    "name": "mysql",
+    "user": "root",
+    "connectionLimit": 10,
+    "legacyUtcDateProcessing": false,
+    "connector": "mysql"
+  },
+  "auditdb": {
+    "host": "172.104.183.238",
+    "port": 3306,
+    "url": "",
+    "database": "bizon_audit_live",
+    "password": "E>+@J2&_6eUdxt",
+    "name": "auditdb",
+    "user": "root",
+    "connector": "mysql"
+  },
+  "uploadfiles": {
+    "name": "uploadfiles",
+    "connector": "loopback-component-storage",
+    "provider": "filesystem",
+    "root": "./server/containers",
+    "allowedContentTypes": [
+      "image/jpg",
+      "image/jpeg",
+      "image/png",
+      "application/pdf",
+      "application/docx",
+      "application/xls",
+      "application/xlsx",
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "application/vnd.ms-excel",
+      "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+      "text/csv",
+      "application/vnd.ms-powerpoint",
+      "application/msword"
+    ],
+    "maxFileSize": "25000000"
+  },
+  "myemaildatasource": {
+    "name": "myemaildatasource",
+    "transports": [
+      {
+        "type": "smtp",
+        "host": "smtp.gmail.com",
+        "secure": false,
+        "port": 587,
+        "pool": true,
+        "tls": {
+          "rejectUnauthorized": true
+        },
+        "auth": {
+          "user": "dev@sufalamtech.com",
+          "pass": "miwrpyrkhuxqmmgs"
+        }
+      }
+    ],
+    "connector": "mail"
+  }
+}

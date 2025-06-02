@@ -1,0 +1,89 @@
+{
+  "name": "notification",
+  "base": "configentity",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "SoftDelete": true,
+    "Timestamp": true
+  },
+  "hidden": [],
+  "properties": {
+    "id": {
+      "type": "string",
+      "id": true,
+      "defaultFn": "uuidv4"
+    },
+    "textmessage": {
+      "type": "string"
+    },
+    "arabicTextmessage": {
+      "type": "string",
+      "dataType": "longtext"
+    },
+    "entity_id": {
+      "type": "string"
+    },
+    "textmessage_html": {
+      "type": "string"
+    },
+    "createdby": {
+      "type": "string"
+    },
+    "modifiedby": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "notificationreceiver": {
+      "type": "belongsTo",
+      "model": "notificationreceiver",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "notificationtypes": {
+      "type": "hasOne",
+      "model": "notificationtype",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "notificationreceivers": {
+      "type": "hasMany",
+      "model": "notificationreceiver",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "find"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "findById"
+    }
+  ],
+  "methods": {}
+}

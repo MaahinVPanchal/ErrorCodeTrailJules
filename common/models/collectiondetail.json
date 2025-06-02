@@ -1,0 +1,37 @@
+{
+  "name": "collectiondetail",
+  "base": "configentity",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "SoftDelete": true,
+    "Timestamp": true
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "id": true,
+      "defaultFn": "uuidv4"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "collection": {
+      "type": "belongsTo",
+      "model": "collection",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "product": {
+      "type": "belongsTo",
+      "model": "product",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

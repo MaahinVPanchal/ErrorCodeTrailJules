@@ -1,0 +1,70 @@
+{
+  "name": "auditlog",
+  "base": "configentity",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "SoftDelete": true,
+    "Timestamp": true
+  },
+  "hidden": [],
+  "properties": {
+    "ip": {
+      "type": "string"
+    },
+    "deviceinfo": {
+      "type": "string"
+    },
+    "method": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "request": {
+      "type": "string",
+      "dataType": "longtext"
+    },
+    "response_code": {
+      "type": "number"
+    },
+    "response": {
+      "type": "string",
+      "dataType": "longtext"
+    },
+    "userId": {
+      "type": "string"
+    },
+    "cellnumber": {
+      "type": "string"
+    },
+    "username": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "Admin",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "Admin",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

@@ -1,0 +1,75 @@
+{
+  "name": "notificationtype",
+  "base": "configentity",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "SoftDelete": true,
+    "Timestamp": true
+  },
+  "hidden": [],
+  "properties": {
+    "textmessage": {
+      "type": "string"
+    },
+    "textmessage_html": {
+      "type": "string"
+    },
+    "code": {
+      "type": "string"
+    },
+    "notification": {
+      "type": "string",
+      "dataType": "longtext"
+    },
+    "arabicNotification": {
+      "type": "string",
+      "dataType": "longtext"
+    },
+    "templateId": {
+      "type": "string"
+    },
+    "createdby": {
+      "type": "string"
+    },
+    "modifiedby": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "notification": {
+      "type": "belongsTo",
+      "model": "notification",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "find"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "findOne"
+    }
+  ],
+  "methods": {}
+}

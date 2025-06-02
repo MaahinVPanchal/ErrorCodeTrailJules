@@ -1,0 +1,46 @@
+{
+  "restApiRoot": "/api",
+  "host": "0.0.0.0",
+  "port": 3002,
+  "httpMode": true,
+  "isProduction": false,
+  "certConfig": {
+    "path": "/home/ravipc/Sufalamtech/Darshak/b2b/web_b2b/server/private",
+    "key": "192.168.1.22.key",
+    "cert": "192.168.1.22.crt",
+    "ca": [
+      "ca.ssl.indexnl.com.crt"
+    ],
+    "requestCert": false,
+    "rejectUnauthorized": false
+  },
+  "remoting": {
+    "context": false,
+    "rest": {
+      "handleErrors": false,
+      "normalizeHttpPath": false,
+      "xml": false
+    },
+    "json": {
+      "strict": false,
+      "limit": "100kb"
+    },
+    "urlencoded": {
+      "extended": true,
+      "limit": "100kb"
+    },
+    "cors": false
+  },
+  "serverConfig": {
+    "updatePaymentGateway": false,
+    "whileCreateNewInstanceEnaleSadadPayment": false,
+    "setStateVisibilitySetting": false,
+    "enableOpenstore": false,
+    "enableEmailBasedLogin": false,
+    "createFolderUnderS3Bucket": false,
+    "webstore_url": "http://localhost:3001/",
+    "adminpanel_url": "http://localhost:4200/",
+    "emailSenderName": "Localhost",
+    "API_URL": "http://localhost:3002/"
+  }
+}

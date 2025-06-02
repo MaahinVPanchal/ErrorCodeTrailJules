@@ -1,0 +1,46 @@
+{
+  "restApiRoot": "/api",
+  "host": "172.104.183.238",
+  "port": 6501,
+  "httpMode": true,
+  "isProduction": true,
+  "certConfig": {
+    "path": "/home/ravipc/Sufalamtech/Darshak/b2b/web_b2b/server/private",
+    "key": "192.168.1.22.key",
+    "cert": "192.168.1.22.crt",
+    "ca": [
+      "ca.ssl.indexnl.com.crt"
+    ],
+    "requestCert": false,
+    "rejectUnauthorized": false
+  },
+  "remoting": {
+    "context": false,
+    "rest": {
+      "handleErrors": false,
+      "normalizeHttpPath": false,
+      "xml": false
+    },
+    "json": {
+      "strict": false,
+      "limit": "100kb"
+    },
+    "urlencoded": {
+      "extended": true,
+      "limit": "100kb"
+    },
+    "cors": false
+  },
+  "serverConfig": {
+    "updatePaymentGateway": false,
+    "whileCreateNewInstanceEnaleSadadPayment": false,
+    "setStateVisibilitySetting": false,
+    "enableOpenstore": false,
+    "enableEmailBasedLogin": false,
+    "createFolderUnderS3Bucket": false,
+    "webstore_url": "https://store.bizon365.com/",
+    "adminpanel_url": "https://manage.bizon365.com/",
+    "emailSenderName": "BizOn365",
+    "API_URL": "https://bizonapi.sufalam.live/"
+  }
+}

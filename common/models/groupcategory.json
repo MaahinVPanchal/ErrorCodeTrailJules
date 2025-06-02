@@ -1,0 +1,62 @@
+{
+  "name": "groupcategory",
+  "base": "configentity",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "SoftDelete": true,
+    "Timestamp": true
+  },
+  "hidden": [],
+  "properties": {
+    "id": {
+      "type": "string",
+      "id": true,
+      "defaultFn": "uuidv4"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "groups": {
+      "type": "hasMany",
+      "model": "group",
+      "foreignKey": "",
+      "through": "groupcategory"
+    },
+    "group": {
+      "type": "belongsTo",
+      "model": "group",
+      "foreignKey": ""
+    },
+    "categories": {
+      "type": "hasMany",
+      "model": "category",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [{
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "Admin",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "Admin",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

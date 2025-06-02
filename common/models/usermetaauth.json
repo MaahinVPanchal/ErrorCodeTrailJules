@@ -1,0 +1,131 @@
+{
+  "name": "usermetaauth",
+  "base": "configentity",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "SoftDelete": true,
+    "Timestamp": true
+  },
+  "hidden": [],
+  "properties": {
+    "id": {
+      "type": "string",
+      "id": true,
+      "defaultFn": "uuidv4"
+    },
+    "signinotp": {
+      "type": "number"
+    },
+    "nooftimesignin": {
+      "type": "number",
+      "default": 0
+    },
+    "signinotpvalidtill": {
+      "type": "date"
+    },
+    "changepasswordotp": {
+      "type": "number"
+    },
+    "changepasswordotpvalidtill": {
+      "type": "date"
+    },
+    "forgotpasswordotp": {
+      "type": "number"
+    },
+    "forgotpasswordotpvalidtill": {
+      "type": "date"
+    },
+    "changecellnumberotp": {
+      "type": "number"
+    },
+    "signupotp": {
+      "type": "number"
+    },
+    "signupotpvalidtill": {
+      "type": "date"
+    },
+    "accesstoken": {
+      "type": "string"
+    },
+    "accesstokenvalidtill": {
+      "type": "date"
+    },
+    "pushnotification": {
+      "type": "number"
+    },
+    "blocked": {
+      "type": "number"
+    },
+    "devicetoken": {
+      "type": "string"
+    },
+    "tempcell": {
+      "type": "string"
+    },
+    "tempemail": {
+      "type": "string"
+    },
+    "createdby": {
+      "type": "string"
+    },
+    "modifiedby": {
+      "type": "string"
+    },
+    "countrycode": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "sendOtp"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "verifyOtp"
+    }
+  ],
+  "methods": {}
+}

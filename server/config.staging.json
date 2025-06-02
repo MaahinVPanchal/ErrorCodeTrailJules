@@ -1,0 +1,46 @@
+{
+  "restApiRoot": "/api",
+  "host": "172.104.173.184",
+  "port": 6501,
+  "httpMode": true,
+  "isProduction": false,
+  "certConfig": {
+    "path": "/home/ravipc/Sufalamtech/Darshak/b2b/web_b2b/server/private",
+    "key": "192.168.1.22.key",
+    "cert": "192.168.1.22.crt",
+    "ca": [
+      "ca.ssl.indexnl.com.crt"
+    ],
+    "requestCert": false,
+    "rejectUnauthorized": false
+  },
+  "remoting": {
+    "context": false,
+    "rest": {
+      "handleErrors": false,
+      "normalizeHttpPath": false,
+      "xml": false
+    },
+    "json": {
+      "strict": false,
+      "limit": "100kb"
+    },
+    "urlencoded": {
+      "extended": true,
+      "limit": "100kb"
+    },
+    "cors": false
+  },
+  "serverConfig": {
+    "updatePaymentGateway": false,
+    "whileCreateNewInstanceEnaleSadadPayment": false,
+    "setStateVisibilitySetting": false,
+    "enableOpenstore": false,
+    "enableEmailBasedLogin": false,
+    "createFolderUnderS3Bucket": false,
+    "webstore_url": "http://bizon.secretdemo.com/",
+    "adminpanel_url": "http://managebizon.secretdemo.com/en/",
+    "emailSenderName": "Test Server",
+    "API_URL": "http://172.104.173.184:6501/"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "name": "masterdetailmeta",
+  "base": "configentity",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "SoftDelete": true,
+    "Timestamp": true
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "id": true,
+      "defaultFn": "uuidv4"
+    },
+    "smscredits": {
+      "type": "number"
+    },
+    "status": {
+      "type": "number"
+    },
+    "createdby": {
+      "type": "string"
+    },
+    "modifiedby": {
+      "type": "string"
+    },
+    "configuration": {
+      "type": "string",
+      "dataType": "longtext"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "masterdetail": {
+      "type": "belongsTo",
+      "model": "masterdetail",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

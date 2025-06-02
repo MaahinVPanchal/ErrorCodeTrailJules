@@ -1,0 +1,520 @@
+{
+  "name": "product",
+  "base": "configentity",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "SoftDelete": true,
+    "Timestamp": true
+  },
+  "hidden": [],
+  "properties": {
+    "id": {
+      "type": "string",
+      "id": true,
+      "defaultFn": "uuidv4"
+    },
+    "name": {
+      "type": "string"
+    },
+    "productno": {
+      "type": "number",
+      "length": 20
+    },
+    "price": {
+      "type": "number",
+      "length": 20,
+      "dataType": "float",
+      "precision": 20,
+      "scale": 2,
+      "default": 0
+    },
+    "availablequantity": {
+      "type": "number",
+      "default": 0
+    },
+    "productstatus": {
+      "type": "number"
+    },
+    "inInquiry": {
+      "type": "boolean"
+    },
+    "expecteddays": {
+      "type": "number"
+    },
+    "createdby": {
+      "type": "string"
+    },
+    "modifiedby": {
+      "type": "string"
+    },
+    "sellcounter": {
+      "type": "number",
+      "default": 0
+    },
+    "other": {
+      "type": "string",
+      "dataType": "longtext"
+    },
+    "description": {
+      "type": "string",
+      "dataType": "longtext"
+    },
+    "productdetails": {
+      "type": "string",
+      "dataType": "longtext"
+    },
+    "videourllink": {
+      "type": "string"
+    },
+    "productvariation": {
+      "type": "string",
+      "dataType": "longtext"
+    },
+    "variationconfig": {
+      "type": "string",
+      "dataType": "longtext"
+    },
+    "productunit": {
+      "type": "string"
+    },
+    "productbrochure": {
+      "type": "string"
+    },
+    "lastModifiedPriceDate": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "category": {
+      "type": "belongsTo",
+      "model": "category",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "productmedia": {
+      "type": "hasMany",
+      "model": "productmedia",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      },
+      "scope": {
+        "order": "sequence ASC"
+      }
+    },
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "productbrand": {
+      "type": "belongsTo",
+      "model": "productbrand",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "groupprices": {
+      "type": "hasMany",
+      "model": "groupprice",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      },
+      "scope": {
+        "include": "group",
+        "deleted": true
+      }
+    },
+    "producttags": {
+      "type": "hasMany",
+      "model": "producttags",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "producttype": {
+      "type": "belongsTo",
+      "model": "producttype",
+      "foreignKey": ""
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "productprogress"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "productTopSelling"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "productCategoryFilter"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "getSingleProduct"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "shortnewURL"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "exportProducts"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "importProducts"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "setGSTInOther"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "countTotalProductsIntoCategory"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "exportpdfqrcode"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "generaterandomproductno"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "importKapasiProducts"
+    }
+  ],
+  "methods": {
+    "productprogress": {
+      "accepts": {
+        "arg": "req",
+        "type": "object",
+        "http": {
+          "source": "req"
+        }
+      },
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/productprogress",
+        "verb": "get"
+      }
+    },
+    "productTopSelling": {
+      "accepts": {
+        "arg": "req",
+        "type": "object",
+        "http": {
+          "source": "req"
+        }
+      },
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/productTopSelling",
+        "verb": "get"
+      }
+    },
+    "productCategoryFilter": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/productCategoryFilter",
+        "verb": "get"
+      }
+    },
+    "getSingleProduct": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/getSingleProduct",
+        "verb": "get"
+      }
+    },
+    "shortnewURL": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/shortnewURL",
+        "verb": "post"
+      }
+    },
+    "exportProducts": {
+      "accepts": {
+        "arg": "req",
+        "type": "object",
+        "http": {
+          "source": "req"
+        }
+      },
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/exportProducts",
+        "verb": "get"
+      }
+    },
+    "importProducts": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/importProducts",
+        "verb": "post"
+      }
+    },
+    "setvariationconfig": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/setvariationconfig",
+        "verb": "get"
+      }
+    },
+    "setGSTInOther": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/setGSTInOther",
+        "verb": "get"
+      }
+    },
+    "countTotalProductsIntoCategory": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/countTotalProductsIntoCategory",
+        "verb": "get"
+      }
+    },
+    "exportpdfqrcode": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        },
+        {
+          "arg": "res",
+          "type": "object",
+          "http": {
+            "source": "res"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "buffer",
+        "root": true
+      },
+      "http": {
+        "path": "/exportpdfqrcode",
+        "verb": "get"
+      }
+    },
+    "generaterandomproductno": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/generaterandomproductno",
+        "verb": "get"
+      }
+    },
+    "importKapasiProducts": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/importKapasiProducts",
+        "verb": "post"
+      }
+    }
+  }
+}

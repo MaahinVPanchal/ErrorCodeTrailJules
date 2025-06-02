@@ -1,0 +1,660 @@
+{
+  "name": "user",
+  "base": "User",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true,
+    "allowEternalTokens": true
+  },
+  "ttl": -1,
+  "mixins": {
+    "SoftDelete": true,
+    "Timestamp": true
+  },
+  "hidden": [],
+  "properties": {
+    "id": {
+      "type": "string",
+      "id": true,
+      "defaultFn": "uuidv4"
+    },
+    "firstname": {
+      "type": "string"
+    },
+    "lastname": {
+      "type": "string"
+    },
+    "cellnumber": {
+      "type": "string"
+    },
+    "address1": {
+      "type": "string"
+    },
+    "address2": {
+      "type": "string"
+    },
+    "profilepic": {
+      "type": "string"
+    },
+    "userstatus": {
+      "type": "string"
+    },
+    "registervia": {
+      "type": "string"
+    },
+    "cellVerified": {
+      "type": "number"
+    },
+    "devicetoken": {
+      "type": "string"
+    },
+    "roleId": {
+      "type": "number"
+    },
+    "companyname": {
+      "type": "string"
+    },
+    "createdby": {
+      "type": "string"
+    },
+    "modifiedby": {
+      "type": "string"
+    },
+    "isregistered": {
+      "type": "boolean"
+    },
+    "admincreated": {
+      "type": "number"
+    },
+    "gstin": {
+      "type": "string"
+    },
+    "billingaddress": {
+      "type": "string",
+      "dataType": "longtext"
+    },
+    "shippingaddress": {
+      "type": "string",
+      "dataType": "longtext"
+    },
+    "transport": {
+      "type": "string",
+      "dataType": "longtext"
+    },
+    "reportingto": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "discount": {
+      "type": "number"
+    },
+    "countrycode": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "usermetaauths": {
+      "type": "hasOne",
+      "model": "usermetaauth",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "orders": {
+      "type": "hasMany",
+      "model": "order",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "products": {
+      "type": "hasMany",
+      "model": "product",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "notificationreceiver": {
+      "type": "belongsTo",
+      "model": "notificationreceiver",
+      "foreignKey": ""
+    },
+    "commoncounter": {
+      "type": "belongsTo",
+      "model": "commoncounter",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "commoncounters": {
+      "type": "hasMany",
+      "model": "commoncounter",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "city": {
+      "type": "belongsTo",
+      "model": "city",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      },
+      "scope": {
+        "include": "state",
+        "deleted": true
+      }
+    },
+    "salesmancity": {
+      "type": "hasMany",
+      "model": "salesmancity",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      },
+      "scope": {
+        "include": "city",
+        "deleted": true
+      }
+    },
+    "group": {
+      "type": "belongsTo",
+      "model": "group",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "role": {
+      "type": "belongsTo",
+      "model": "role",
+      "foreignKey": ""
+    },
+    "ordernotes": {
+      "type": "hasMany",
+      "model": "ordernotes",
+      "foreignKey": ""
+    },
+    "collections": {
+      "type": "hasMany",
+      "model": "collection",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "findOne"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "Admin",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "Admin",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "cartpush"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "topuser"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "topuserbyamount"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "userprogress"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "userexistence"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "searchCustomerData"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "searchCustomerDataByCity"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "getUserDataByIdWithStatistics"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "getsalesmanListForReportingTo"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "listRecentlyAddedUser"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "checkEmailOrCellnumberExist"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "importUser"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "importSalesmen"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "exportUser"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "topPerformingSalesman"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "getMerchantStatistics"
+    }
+  ],
+  "methods": {
+    "topuser": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/topuser",
+        "verb": "get"
+      }
+    },
+    "topuserbyamount": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/topuserbyamount",
+        "verb": "get"
+      }
+    },
+    "userprogress": {
+      "accepts": {
+        "arg": "req",
+        "type": "object",
+        "http": {
+          "source": "req"
+        }
+      },
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/userprogress",
+        "verb": "get"
+      }
+    },
+    "userexistence": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "description": "Checking whether userexist or not based on mobile number",
+      "http": {
+        "path": "/userexistence",
+        "verb": "post"
+      }
+    },
+    "searchCustomerData": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/searchCustomerData",
+        "verb": "get"
+      }
+    },
+    "searchCustomerDataByCity": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/searchCustomerDataByCity",
+        "verb": "get"
+      }
+    },
+    "getUserDataByIdWithStatistics": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/getUserDataByIdWithStatistics",
+        "verb": "get"
+      }
+    },
+    "getsalesmanListForReportingTo": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/getsalesmanListForReportingTo",
+        "verb": "get"
+      }
+    },
+    "listRecentlyAddedUser": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/listRecentlyAddedUser",
+        "verb": "get"
+      }
+    },
+    "checkEmailOrCellnumberExist": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "Object",
+        "root": true
+      },
+      "http": {
+        "path": "/checkEmailOrCellnumberExist",
+        "verb": "get"
+      }
+    },
+    "importUser": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/importUser",
+        "verb": "post"
+      }
+    },
+    "exportUser": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/exportUser",
+        "verb": "get"
+      }
+    },
+    "importSalesmen": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/importSalesmen",
+        "verb": "post"
+      }
+    },
+    "exportSalesmen": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/exportSalesmen",
+        "verb": "get"
+      }
+    },
+    "topPerformingSalesman": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/topPerformingSalesman",
+        "verb": "get"
+      }
+    },
+    "getMerchantStatistics": {
+      "accepts": [
+        {
+          "arg": "req",
+          "type": "object",
+          "http": {
+            "source": "req"
+          }
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "object",
+        "root": true
+      },
+      "http": {
+        "path": "/getMerchantStatistics",
+        "verb": "get"
+      }
+    }
+  }
+}

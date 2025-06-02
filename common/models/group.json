@@ -1,0 +1,98 @@
+{
+  "name": "group",
+  "base": "configentity",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "SoftDelete": true,
+    "Timestamp": true
+  },
+  "hidden": [],
+  "properties": {
+    "id": {
+      "type": "string",
+      "id": true,
+      "defaultFn": "uuidv4"
+    },
+    "name": {
+      "type": "string"
+    },
+    "isprice": {
+      "type": "boolean"
+    },
+    "noofusers": {
+      "type": "number"
+    },
+    "categoryId": {
+      "type": "text"
+    },
+    "status": {
+      "type": "boolean"
+    },
+    "createdby": {
+      "type": "string"
+    },
+    "modifiedby": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "groupcategories": {
+      "type": "hasOne",
+      "model": "groupcategory",
+      "foreignKey": ""
+    },
+    "user": {
+      "type": "hasMany",
+      "model": "user",
+      "foreignKey": ""
+    },
+    "groupcategory": {
+      "type": "hasMany",
+      "model": "groupcategory",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "groupprices": {
+      "type": "hasMany",
+      "model": "groupprice",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "Admin",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "getgrouppricing"
+    }
+  ],
+  "methods": {}
+}
