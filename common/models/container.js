@@ -49,7 +49,7 @@ module.exports = function (Container) {
       }
       next();
     } catch (error) {
-      throw error;
+      next(error);
     }
   });
 
@@ -99,7 +99,7 @@ module.exports = function (Container) {
 
       next();
     } catch (error) {
-      throw error;
+      next(error);
     }
   });
 
@@ -118,7 +118,7 @@ module.exports = function (Container) {
       }
 
       var getFileUploadSetting = await settingConstants.getTenantSettingValueBasedOnKey(settingConstants.FILE_UPLOAD_KEY, ctx.req.headers.masterdetailid);
-      console.log('getFileUploadSetting', getFileUploadSetting);
+      // console.log('getFileUploadSetting', getFileUploadSetting);
 
       // var getFileUploadSetting = 'FileSystem'
       if (getFileUploadSetting === settingConstants.FILE_UPLOAD_TO_S3) {
@@ -152,7 +152,7 @@ module.exports = function (Container) {
       }
       next();
     } catch (error) {
-      throw error;
+      next(error);
     }
   });
 
